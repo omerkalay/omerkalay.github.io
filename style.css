@@ -126,31 +126,17 @@ header::before {
 
 header h1 {
     font-size: 3.8rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    position: relative;
-    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-align: center;
     margin: 0 auto;
-    white-space: nowrap;
-    background: linear-gradient(
-        45deg,
-        #3498db,
-        #4ea5e0,
-        #5bb2e6,
-        #67bfec,
-        #73ccf2
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 
-        2px 2px 4px rgba(52, 152, 219, 0.2),
-        -2px -2px 4px rgba(52, 152, 219, 0.1);
-    animation: gradientFlow 8s ease infinite;
+    position: relative;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
 }
 
-header h1::before {
+header h1::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -158,39 +144,30 @@ header h1::before {
     transform: translateX(-50%);
     width: 60%;
     height: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(52, 152, 219, 0.5),
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(52, 152, 219, 0.8),
+        rgba(52, 152, 219, 0.8),
         transparent
     );
 }
 
-header h1::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40%;
-    height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(52, 152, 219, 0.3),
-        transparent
-    );
+/* Hover efekti */
+header h1:hover {
+    text-shadow: 0 0 30px rgba(52, 152, 219, 0.5);
 }
 
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
+/* Tablet için */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2.8rem;
     }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
+}
+
+/* Telefon için */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 2.2rem;
     }
 }
 
