@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Animasyonlu arka plan */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(41, 28, 24, 0.2) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(52, 152, 219, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 75% 80%, rgba(255, 107, 43, 0.1) 0%, transparent 20%);
+    z-index: -1;
+}
+
+/* Dekoratif şekiller */
+.container::before {
+    content: '';
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, transparent, rgba(52, 152, 219, 0.03));
+    border: 1px solid rgba(52, 152, 219, 0.1);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.container::after {
+    content: '';
+    position: fixed;
+    bottom: 15%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, transparent, rgba(255, 107, 43, 0.03));
+    border: 1px solid rgba(255, 107, 43, 0.1);
+    transform: rotate(30deg);
+    z-index: -1;
+}
+
+/* Animasyonlu noktalar */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+    100% { transform: translateY(0px) rotate(360deg); }
+}
+
+.floating-dots::before {
+    content: '•••';
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    color: rgba(255, 107, 43, 0.1);
+    font-size: 4rem;
+    letter-spacing: 10px;
+    animation: float 15s ease-in-out infinite;
+}
+
+.floating-dots::after {
+    content: '•••';
+    position: fixed;
+    bottom: 20%;
+    right: 10%;
+    color: rgba(52, 152, 219, 0.1);
+    font-size: 4rem;
+    letter-spacing: 10px;
+    animation: float 20s ease-in-out infinite reverse;
+}
+
+/* Ana container */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header stili */
+header {
+    text-align: center;
+    padding: 4rem 0;
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+        circle,
+        rgba(52, 152, 219, 0.05) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(
+        45deg,
+        #3498db,
+        #4ea5e0,
+        #5bb2e6,
+        #67bfec,
+        #73ccf2
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 
+        2px 2px 4px rgba(52, 152, 219, 0.2),
+        -2px -2px 4px rgba(52, 152, 219, 0.1);
+    animation: gradientFlow 8s ease infinite;
+}
+
+header h1::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(52, 152, 219, 0.5),
+        transparent
+    );
+}
+
+header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(52, 152, 219, 0.3),
+        transparent
+    );
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Orta kısım stili */
+.middle-content {
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: rgba(41, 28, 24, 0.9);
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-button:hover {
+    transform: translateY(-2px);
+    background: rgba(41, 28, 24, 1);
+}
+
+/* Footer stili */
+.footer-content {
+    margin-top: auto;
+    width: 100%;
+    border-top: 2px solid #ff6b2b;
+    padding: 2rem 0;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(41, 28, 24, 0.9);
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid #ff6b2b;
+    border-right: 2px solid #ff6b2b;
+}
+
+.footer-section::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+    border-bottom: 2px solid #ff6b2b;
+    border-left: 2px solid #ff6b2b;
+}
+
+.footer-section h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #ff6b2b;
+    transition: width 0.3s ease;
+}
+
+.footer-section:hover h2::after {
+    width: 100px;
+}
+
+.footer-section p {
+    color: #ffffff;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+/* Email reveal efekti - yükseklik artırıldı */
+.email-reveal {
+    margin-top: 1rem;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.footer-section:hover .email-reveal {
+    height: 45px;
+    opacity: 1;
+}
+
+.email {
+    display: inline-block;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    letter-spacing: 0.3px;
+    background: rgba(255, 107, 43, 0.1);
+    color: #ff6b2b;
+    white-space: nowrap;
+}
+
+.footer-section:hover .email {
+    transform: translateY(0);
+    background: rgba(255, 107, 43, 0.2);
+}
+
+/* Yeni div ekle */
+.floating-dots {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+} 
