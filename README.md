@@ -10,15 +10,22 @@ This is my personal website built with HTML, CSS, and JavaScript. Visit [omerkal
 - ✨ Modern UI with subtle animations
 - 🎨 Minimalist and clean interface
 
-## Technologies Used
+## Visit Website
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
+🌐 [omerkalay.github.io](https://omerkalay.github.io)
+
+## Development
+
+This website is built with:
+- HTML5 for structure
+- CSS3 for styling
+- Vanilla JavaScript for interactivity
 - GitHub Pages for hosting
 
-## Local Development
+## Contact
 
-To run this website locally:
+Feel free to reach out for collaborations or just to say hello!
 
-1. Clone the repository
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
