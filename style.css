@@ -578,4 +578,45 @@ header h1::after {
         border-color: #ff6b2b;
         border-width: 2px;
     }
+}
+
+/* Dil seçici stilleri */
+.language-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin-top: -2rem; /* Header'dan biraz yukarıda olsun */
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.lang-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #FF6B00;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.lang-btn:hover::after,
+.lang-btn.active::after {
+    width: 100%;
+}
+
+.lang-btn.active {
+    color: #FF6B00;
 } 
