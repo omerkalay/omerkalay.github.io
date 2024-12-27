@@ -327,6 +327,8 @@ header h1::after {
     color: #ffffff;
     line-height: 1.8;
     font-size: 1.1rem;
+    margin: 0;
+    text-align: left;
 }
 
 .footer-section:hover {
@@ -337,7 +339,7 @@ header h1::after {
 .email-reveal {
     margin-top: 1rem;
     overflow: hidden;
-    height: 0;
+    height: 35px;
     opacity: 0;
     transition: all 0.5s ease;
 }
@@ -349,7 +351,7 @@ header h1::after {
 
 .email {
     display: inline-block;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     padding: 6px 12px;
     border-radius: 6px;
     transform: translateY(20px);
@@ -357,6 +359,7 @@ header h1::after {
     letter-spacing: 0.3px;
     background: rgba(255, 107, 43, 0.1);
     color: #ff6b2b;
+    white-space: nowrap;
 }
 
 .footer-section:hover .email {
@@ -562,6 +565,7 @@ header h1::after {
     .footer-section p {
         font-size: 0.95rem;
         line-height: 1.6;
+        text-align: center;
     }
 
     /* Footer köşe çizgileri */
