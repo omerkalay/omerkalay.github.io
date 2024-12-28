@@ -682,4 +682,41 @@ header h1:hover {
     .footer-section:hover .email-reveal {
         height: 50px;
     }
+}
+
+.easter-egg {
+    color: inherit;
+    text-decoration: none;
+    cursor: inherit;
+    opacity: 1;
+    transition: all 0.5s ease;
+    position: relative;
+    display: inline-block;
+    padding: 0 2px;
+    pointer-events: none;
+}
+
+.easter-egg::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23333"/><circle cx="10" cy="10" r="7" fill="%23000"/><circle cx="7" cy="7" r="2" fill="%23fff"/><path d="M5,10 L15,10 M10,5 L10,15" stroke="%23ff4444" stroke-width="1.5"/></svg>') 10 10, crosshair;
+}
+
+.easter-egg:hover {
+    animation: subtleGlitch 2s infinite;
+    opacity: 0.995;
+}
+
+@keyframes subtleGlitch {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(0.2px) translateY(-0.2px); }
+    50% { transform: translateX(-0.2px) translateY(0.2px); }
+    75% { transform: translateX(0.2px) translateY(0); }
+    100% { transform: translateX(0) translateY(0); }
 } 
