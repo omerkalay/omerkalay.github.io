@@ -46,4 +46,21 @@ function changeLang(lang) {
 // Click event listeners
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.onclick = () => changeLang(btn.getAttribute('data-lang'));
+});
+
+document.querySelectorAll('.email-reveal').forEach(container => {
+    const emailElement = container.querySelector('.email');
+    
+    // Touch events for Safari
+    container.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Prevent default touch behavior
+        emailElement.style.opacity = '1';
+        emailElement.style.transform = 'translateY(0)';
+    });
+    
+    container.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        emailElement.style.opacity = '0';
+        emailElement.style.transform = 'translateY(20px)';
+    });
 }); 

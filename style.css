@@ -694,7 +694,8 @@ header h1:hover {
     display: inline-block;
     padding: 0 2px;
     pointer-events: none;
-    background: inherit;
+    -webkit-text-fill-color: inherit;
+    background: none;
 }
 
 .easter-egg::before {
@@ -720,4 +721,18 @@ header h1:hover {
     50% { transform: translateX(-0.2px) translateY(0.2px); }
     75% { transform: translateX(0.2px) translateY(0); }
     100% { transform: translateX(0) translateY(0); }
+}
+
+/* Safari overscroll fix - diğer stilleri değiştirmeden sadece bunu ekleyin */
+@supports (-webkit-touch-callout: none) {
+    body::after {
+        content: '';
+        position: fixed;
+        top: -50vh;
+        left: -50vw;
+        right: -50vw;
+        bottom: -50vh;
+        z-index: -2;
+        background: inherit;
+    }
 } 
