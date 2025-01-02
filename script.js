@@ -51,24 +51,30 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 document.querySelectorAll('.email-reveal').forEach(container => {
     const emailElement = container.querySelector('.email');
     
-    // Safari touch fix for the entire section
-    const parentSection = container.closest('.about-section') || container.closest('.contact-section');
-    if (parentSection) {
-        parentSection.addEventListener('click', (e) => {
-            e.preventDefault();
+    // Sadece Safari mobile için touch fix
+    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent) && 'ontouchstart' in window) {
+        const parentSection = container.closest('.about-section') || container.closest('.contact-section');
+        if (parentSection) {
+            // Safari için gerekli stil ayarları
+            parentSection.style.webkitTouchCallout = 'none';
+            parentSection.style.webkitUserSelect = 'none';
             
-            // First, close all other open reveals
-            document.querySelectorAll('.email').forEach(el => {
-                if (el !== emailElement) {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(20px)';
-                }
+            parentSection.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                
+                // Diğer açık olanları kapat
+                document.querySelectorAll('.email').forEach(el => {
+                    if (el !== emailElement) {
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(20px)';
+                    }
+                });
+                
+                // Mevcut elementi aç/kapat
+                const currentlyVisible = window.getComputedStyle(emailElement).opacity === '1';
+                emailElement.style.opacity = currentlyVisible ? '0' : '1';
+                emailElement.style.transform = currentlyVisible ? 'translateY(20px)' : 'translateY(0)';
             });
-
-            // Toggle current reveal
-            const isVisible = emailElement.style.opacity === '1';
-            emailElement.style.opacity = isVisible ? '0' : '1';
-            emailElement.style.transform = isVisible ? 'translateY(20px)' : 'translateY(0)';
-        });
+        }
     }
 }); 
