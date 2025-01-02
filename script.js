@@ -50,17 +50,21 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 document.querySelectorAll('.email-reveal').forEach(container => {
     const emailElement = container.querySelector('.email');
+    let isVisible = false;
     
-    // Touch events for Safari
-    container.addEventListener('touchstart', (e) => {
-        e.preventDefault(); // Prevent default touch behavior
-        emailElement.style.opacity = '1';
-        emailElement.style.transform = 'translateY(0)';
-    });
-    
-    container.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        emailElement.style.opacity = '0';
-        emailElement.style.transform = 'translateY(20px)';
-    });
+    // Safari touch fix for the entire section
+    const parentSection = container.closest('.about-section') || container.closest('.contact-section');
+    if (parentSection) {
+        parentSection.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            emailElement.style.opacity = '1';
+            emailElement.style.transform = 'translateY(0)';
+        });
+
+        parentSection.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            emailElement.style.opacity = '0';
+            emailElement.style.transform = 'translateY(20px)';
+        });
+    }
 }); 
