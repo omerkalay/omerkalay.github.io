@@ -50,21 +50,25 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 document.querySelectorAll('.email-reveal').forEach(container => {
     const emailElement = container.querySelector('.email');
-    let isVisible = false;
     
     // Safari touch fix for the entire section
     const parentSection = container.closest('.about-section') || container.closest('.contact-section');
     if (parentSection) {
-        parentSection.addEventListener('touchstart', (e) => {
+        parentSection.addEventListener('click', (e) => {
             e.preventDefault();
-            emailElement.style.opacity = '1';
-            emailElement.style.transform = 'translateY(0)';
-        });
+            
+            // First, close all other open reveals
+            document.querySelectorAll('.email').forEach(el => {
+                if (el !== emailElement) {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                }
+            });
 
-        parentSection.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            emailElement.style.opacity = '0';
-            emailElement.style.transform = 'translateY(20px)';
+            // Toggle current reveal
+            const isVisible = emailElement.style.opacity === '1';
+            emailElement.style.opacity = isVisible ? '0' : '1';
+            emailElement.style.transform = isVisible ? 'translateY(20px)' : 'translateY(0)';
         });
     }
 }); 
