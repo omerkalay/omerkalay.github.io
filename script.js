@@ -51,17 +51,13 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 document.querySelectorAll('.email-reveal').forEach(container => {
     const emailElement = container.querySelector('.email');
     
-    // Sadece Safari mobile için touch fix
-    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent) && 'ontouchstart' in window) {
-        const parentSection = container.closest('.about-section') || container.closest('.contact-section');
+    // Sadece mobil cihazlar için
+    if ('ontouchstart' in window) {
+        const parentSection = container.closest('.footer-section');
         if (parentSection) {
-            // Safari için gerekli stil ayarları
-            parentSection.style.webkitTouchCallout = 'none';
-            parentSection.style.webkitUserSelect = 'none';
+            parentSection.style.cursor = 'pointer';
             
-            parentSection.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                
+            parentSection.addEventListener('click', (e) => {
                 // Diğer açık olanları kapat
                 document.querySelectorAll('.email').forEach(el => {
                     if (el !== emailElement) {
@@ -70,7 +66,7 @@ document.querySelectorAll('.email-reveal').forEach(container => {
                     }
                 });
                 
-                // Mevcut elementi aç/kapat
+                // Toggle current element
                 const currentlyVisible = window.getComputedStyle(emailElement).opacity === '1';
                 emailElement.style.opacity = currentlyVisible ? '0' : '1';
                 emailElement.style.transform = currentlyVisible ? 'translateY(20px)' : 'translateY(0)';
