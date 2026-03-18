@@ -4,17 +4,34 @@ My personal portfolio website. Visit [omerkalay.com](https://omerkalay.com) to s
 
 ## Features
 
-- Dark theme with horizon glow effect
+- Animated mesh gradient shader background
+- Dark theme with monochrome aesthetic
 - Fully responsive design
 - Minimal and clean interface
-- Subtle animations
+- Smooth fade-in animations
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript
-- GitHub Pages
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- @paper-design/shaders-react
+- GitHub Pages (via GitHub Actions)
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Contact
 
